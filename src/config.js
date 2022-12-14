@@ -1,5 +1,6 @@
 // create title function "component"
 // return title in a div
+import loadHomePage from './home';
 
 const createHeader = () => {
     const createHeader = document.createElement("header");
@@ -17,6 +18,9 @@ const navButtons = () => {
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("homeButton");
     homeBtn.textContent = "Home"
+    homeBtn.addEventListener('click', (e) => {
+        return loadHomePage();
+    })
 
     const menuBtn = document.createElement("button");
     menuBtn.classList.add("menuButton");
@@ -33,10 +37,17 @@ const navButtons = () => {
     return navBar;
 }
 
+const backgroundImage = () => {
+    const myImage = new Image();
+    myImage.src = "./assets/lighthouse.jpg"
+    return myImage
+}
+
 const exportPageContents = () => {
     const mainContent = document.querySelector("#content")
     mainContent.appendChild(createHeader());
     mainContent.appendChild(navButtons());
+    mainContent.appendChild(backgroundImage())
 }
 
 
